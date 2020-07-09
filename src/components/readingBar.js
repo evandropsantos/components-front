@@ -19,11 +19,7 @@ const readingBar = (textContent, color = '#ff9800') => {
   const bar = markup(color);
 
   document.body.append(bar);
-  document.addEventListener('scroll', () => {
-    const updateBar = calculate(content);
-    bar.style.width = `${updateBar}%`;
-  });
-
+  document.addEventListener('scroll', () => bar.style.width = `${calculate(content)}%`);
   return this;
 }
 
