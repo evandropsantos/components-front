@@ -1,13 +1,21 @@
+const config = color => {
+  return {
+    height: '4px',
+    backgroundColor: color,
+    top: '0',
+    left: '0',
+    position: 'fixed',
+    zIndex: '9999',
+    width: '0'
+  }
+};
+
 const markup = (color) => {
   let bar = document.createElement('div');
 
-  bar.style.height = '4px';
-  bar.style.backgroundColor = color;
-  bar.style.top = '0';
-  bar.style.left = '0';
-  bar.style.position = 'fixed'
-  bar.style.zIndex = '9999';
-  bar.style.width = '0';
+  Object.entries(config(color)).map(el =>
+    bar.style[el[0]] = el[1]
+  );
 
   return bar;
 }
